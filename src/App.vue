@@ -2,12 +2,27 @@
   <div class="wrapper">
     <div class="cards">
       <the-menu></the-menu>
-      <the-chart></the-chart>
+      <the-cart></the-cart>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+import TheMenu from './components/TheMenu.vue';
+import TheCart from './components/TheCart.vue';
+export default{
+  components: {
+    TheMenu,
+    TheCart
+  },
+  data(){
+    return{
+      
+    }
+  }
+}
+</script>
+
 
 <style>
 * {
@@ -21,16 +36,17 @@ html {
 body {
   margin: 0;
 }
-</style>
 
-<script>
-import TheMenu from './components/TheMenu.vue';
-import TheChart from './components/TheChart.vue';
-export default{
-  components: {
-    TheMenu,
-    TheChart
-  }
+.wrapper {
+  margin-right: auto; 
+  margin-left:  auto;
+  max-width: 1300px;
+  padding-left:  0.5rem;
+  padding-right: 0.5rem; 
 }
 
-</script>
+.cards{
+  display: flex;
+  flex-direction: row;
+}
+</style>

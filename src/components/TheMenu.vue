@@ -1,16 +1,24 @@
 <template>
-  <h1>HELLO</h1>
-    
-      
+<div class="wrapper">
+  <div class="the-menu">
+
   <dish-card v-for="dish in dishes" :key="dish.title">
-      
+    <template v-slot:image>
           <img :src="`/img/${dish.img}`" alt="">
+    </template>
+    <template v-slot:description>
           <h2>{{dish.title}}</h2>
           <p>{{dish.price}}</p>
-      
+          <button>Dodaj do koszyka</button>
+    </template>
+
+
+          
   </dish-card>
-      
-  
+
+  </div>
+</div>
+
 </template>
 <script>
 import DishCard from './DishCard.vue';
@@ -49,7 +57,7 @@ export default {
         {
           title: "Spaghetti",
           price: "28zł",
-          img: "plate__spaghetti-meal-sauce.png"
+          img: "plate__spaghetti-meat-sauce.png"
         },
         {
           title: "Włoskie przysmaki",
