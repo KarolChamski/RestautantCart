@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <div class="cards">
-      <div class="menu"></div>
-      <div class="chart"></div>
+      <the-menu></the-menu>
+      <the-chart></the-chart>
     </div>
   </div>
 </template>
