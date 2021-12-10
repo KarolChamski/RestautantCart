@@ -1,8 +1,23 @@
 <template>
   <h1>HELLO</h1>
+    
+      
+  <dish-card v-for="dish in dishes" :key="dish.title">
+      
+          <img :src="`/img/${dish.img}`" alt="">
+          <h2>{{dish.title}}</h2>
+          <p>{{dish.price}}</p>
+      
+  </dish-card>
+      
+  
 </template>
 <script>
+import DishCard from './DishCard.vue';
 export default {
+    components:{
+        DishCard
+    },
   data() {
     return {
       dishes: [
