@@ -9,11 +9,8 @@
     <template v-slot:description>
           <h2>{{dish.title}}</h2>
           <p>{{dish.price}}</p>
-          <button>Dodaj do koszyka</button>
-    </template>
-
-
-          
+          <button @click="addDish(dish)">Dodaj do koszyka</button>
+    </template> 
   </dish-card>
 
   </div>
@@ -67,5 +64,10 @@ export default {
       ],
     };
   },
+  methods:{
+addDish(item){
+  console.log(item);
+}
+  }
 };
 </script>
