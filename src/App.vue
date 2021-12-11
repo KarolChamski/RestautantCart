@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
+    <button @click="test">TEST Cart</button>
     <div class="cards">
-      <the-menu></the-menu>
+      <the-menu @addToCart="addDish"></the-menu>
       <the-cart></the-cart>
     </div>
   </div>
@@ -17,7 +18,15 @@ export default{
   },
   data(){
     return{
-      
+      CartStatus: []
+    }
+  },
+  methods:{
+    addDish(item){
+      this.CartStatus.push(item)
+    },
+    test(){
+      console.log(this.CartStatus);
     }
   }
 }
