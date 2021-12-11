@@ -25,38 +25,45 @@ export default {
       dishes: [
         {
           title: "Jajka i bekon",
-          price: "15zł",
+          price: 15,
           img: "plate__bacon-eggs.png",
+          counter: 1
         },
         {
           title: "Sałatka z kurczakiem",
-          price: "25zł",
+          price: 25,
           img: "plate__chicken-salad.png",
+          counter: 1
         },
         {
           title: "Paluszki rybne",
-          price: "19zł",
+          price: 19,
           img: "plate__fish-sticks-fries.png",
+          counter: 1
         },
         {
           title: "Ravioli",
-          price: "24zł",
+          price: 24,
           img: "plate__ravioli.png",
+          counter: 1
         },
         {
           title: "Łosoś z warzywami",
-          price: "36zł",
+          price: 36,
           img: "plate__salmon-vegetables.png",
+          counter: 1
         },
         {
           title: "Spaghetti",
-          price: "28zł",
+          price: 28,
           img: "plate__spaghetti-meat-sauce.png",
+          counter: 1
         },
         {
           title: "Włoskie przysmaki",
-          price: "23zł",
+          price: 23,
           img: "plate.png",
+          counter: 1
         },
       ],
     };

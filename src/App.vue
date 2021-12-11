@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
-    <button @click="test">TEST Cart</button>
     <div class="cards">
       <the-menu @addToCart="addDish"></the-menu>
-      <the-cart></the-cart>
+      <the-cart :cart="CartStatus"></the-cart>
     </div>
   </div>
 </template>
@@ -22,12 +21,15 @@ export default{
     }
   },
   methods:{
-    addDish(item){
-      this.CartStatus.push(item)
+    addDish(dish){
+      if(this.CartStatus.some(item => item.title == dish.title)){
+        dish.counter ++;
+      }
+      else{
+        this.CartStatus.push(dish)
+      }
     },
-    test(){
-      console.log(this.CartStatus);
-    }
+
   }
 }
 </script>
