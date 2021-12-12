@@ -7,7 +7,7 @@
         </template>
         <template v-slot:description>
           <h2>{{ dish.title }}</h2>
-          <p>{{ dish.price }}</p>
+          <p>{{ dish.price }}zł</p>
           <button @click="addDish(dish)">Dodaj do koszyka</button>
         </template>
       </dish-card>
