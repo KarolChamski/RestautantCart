@@ -7,13 +7,12 @@
             <p>{{item.price * item.counter}}zł</p>
             <img :src="`/img/${item.img}`" alt="">
             <div class="counter-box">
-            <button>+</button>
+            <button @click="addCounter(item)">+</button>
             <p>ilość: {{item.counter}}</p>
-            <button>-</button>
+            <button @click="reduceCounter(item)">-</button>
             </div>
         </div>
         <h3>Łączna kwota: {{totalPrice}} zł</h3>
-
         <div v-if="this.cart.length == 0" class="empty-cart">
         <p>Koszyk jest pusty</p>
         </div>
@@ -35,6 +34,12 @@ export default{
             const priceArr = this.cart.map(item => item.price * item.counter);
             const totalPrice = priceArr.reduce((acc,cur)=> acc + cur ,0);
            this.totalPrice = totalPrice
+        },
+        addCounter(item){
+            item.counter = item.counter +1
+        },
+        reduceCounter(item){
+            item.counter = item.counter -1
         }
     },
     
