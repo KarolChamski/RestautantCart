@@ -6,9 +6,13 @@
             <p>{{item.title}}</p>
             <p>{{item.price * item.counter}}zł</p>
             <img :src="`/img/${item.img}`" alt="">
+            <div class="counter-box">
+            <button>+</button>
             <p>ilość: {{item.counter}}</p>
+            <button>-</button>
+            </div>
         </div>
-        <h3>Łączna kwota: {{totalPrice}}</h3>
+        <h3>Łączna kwota: {{totalPrice}} zł</h3>
 
         <div v-if="this.cart.length == 0" class="empty-cart">
         <p>Koszyk jest pusty</p>
@@ -40,3 +44,8 @@ export default{
 
 }
 </script>
+<style>
+.counter-box{
+    display: flex;
+}
+</style>
