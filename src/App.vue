@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <div class="cards">
-      <the-menu @addToCart="addDish"></the-menu>
-      <the-cart :cart="CartStatus"></the-cart>
+      <the-menu class="card card-menu" @addToCart="addDish"></the-menu>
+      <the-cart class="card card-cart" :cart="CartStatus"></the-cart>
     </div>
   </div>
 </template>
@@ -56,8 +56,21 @@ body {
   padding-right: 0.5rem; 
 }
 
-.cards{
+.card-menu{
+  position: relative;
+}
+.card-cart{
+  position: absolute;
+}
+
+
+@media (min-width: 768px){
+  .cards{
   display: flex;
   flex-direction: row;
+}
+.card-cart{
+  position: relative;
+}
 }
 </style>

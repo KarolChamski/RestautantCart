@@ -1,25 +1,24 @@
 <template>
-  <div class="wrapper">
     <div class="the-menu">
-      <dish-card v-for="dish in dishes" :key="dish.title">
-        <template v-slot:image>
-          <img :src="`/img/${dish.img}`" alt="" />
-        </template>
-        <template v-slot:description>
+      <div class="dish" v-for="dish in dishes" :key="dish.title">
+
+        <div class="image">
+          <img class="plate" :src="`/img/${dish.img}`" alt="" />
+        </div>
+        
+        <div class="description">
           <h2>{{ dish.title }}</h2>
           <p>{{ dish.price }}zł</p>
           <button @click="addDish(dish)">Dodaj do koszyka</button>
-        </template>
-      </dish-card>
+        </div>
+        
+      </div>
     </div>
-  </div>
 </template>
 <script>
-import DishCard from "./DishCard.vue";
+
 export default {
-  components: {
-    DishCard,
-  },
+
   data() {
     return {
       dishes: [
@@ -49,7 +48,7 @@ export default {
         },
         {
           title: "Łosoś z warzywami",
-          price: 36,
+          price: 39,
           img: "plate__salmon-vegetables.png",
           counter: 1
         },
@@ -60,8 +59,8 @@ export default {
           counter: 1
         },
         {
-          title: "Włoskie przysmaki",
-          price: 23,
+          title: "Tortellini",
+          price: 26,
           img: "plate.png",
           counter: 1
         },
@@ -75,3 +74,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+.dish{
+  display: flex;
+}
+.plate{
+  width: 150px;
+}
+
+</style>
