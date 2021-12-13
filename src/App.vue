@@ -2,9 +2,9 @@
   <div class="wrapper">
     <div class="cards">
       <the-menu class="card card-menu" @addToCart="addDish"></the-menu>
-      <the-cart class="card card-cart" :cart="CartStatus"></the-cart>
     </div>
   </div>
+      <the-cart class="card card-cart" @click="showCart" :visible="visible" :cart="CartStatus"></the-cart>
 </template>
 
 <script>
@@ -17,7 +17,8 @@ export default{
   },
   data(){
     return{
-      CartStatus: []
+      CartStatus: [],
+      visible: false
     }
   },
   methods:{
@@ -29,6 +30,9 @@ export default{
         this.CartStatus.push(dish)
       }
     },
+    showCart(){
+      this.visible = !this.visible
+    }
 
   }
 }
@@ -38,6 +42,7 @@ export default{
 <style>
 * {
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 html {
@@ -55,14 +60,13 @@ body {
   padding-left:  0.5rem;
   padding-right: 0.5rem; 
 }
-
-.card-menu{
-  position: relative;
-}
 .card-cart{
-  position: absolute;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  box-shadow: 3px 3px 20px #0000001A;
+  background-color: rgb(180, 151, 151);
 }
-
 
 @media (min-width: 768px){
   .cards{

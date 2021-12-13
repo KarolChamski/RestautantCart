@@ -2,13 +2,18 @@
 <div class="wrapper">
     
     <div class="the-cart">
+        <h2>Koszyk</h2>
+        <p v-if="this.cart.length == 0" class="empty-cart">Koszyk jest pusty</p>
+
+        <div class="cart-visible" v-if="visible">
+
         <div v-for="item in cart" :key="item.title">
 
             <div class="cart-item" v-if="item.counter != 0">
 
             <p>{{item.title}}</p>
             <p>{{item.price * item.counter}}zł</p>
-            <img :src="`/img/${item.img}`" alt="">
+            <img class="plate" :src="`/img/${item.img}`" alt="">
             <div class="counter-box">
             <button @click="reduceCounter(item)"><img src="../assets/chevron.svg" alt=""></button>
             <p>ilość: {{item.counter}}</p>
@@ -17,12 +22,9 @@
 
             </div>
 
-
-
         </div>
-        <h3>Łączna kwota: {{totalPrice}} zł</h3>
-        <div v-if="this.cart.length == 0" class="empty-cart">
-        <p>Koszyk jest pusty</p>
+        <h3 v-if="cart.length > 0">Łączna kwota: {{totalPrice}} zł</h3>
+        
         </div>
 
     </div>
@@ -36,7 +38,7 @@ export default{
             totalPrice: 0
         }
     },
-    props:['cart'],
+    props:['cart', 'visible'],
     methods:{
         sumPrice(){
             const priceArr = this.cart.map(item => item.price * item.counter);
@@ -59,8 +61,18 @@ export default{
 }
 </script>
 <style>
+
 .counter-box{
     display: flex;
 }
+h2{
+    padding-top: 1rem;
+    margin-bottom: 100px;
+    font-size: 28px;
+}
+.plate{
+    width: 145px;
+}
+
 
 </style>

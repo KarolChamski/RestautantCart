@@ -1,4 +1,5 @@
 <template>
+<div class="wrapper">
     <div class="the-menu">
       <div class="dish" v-for="dish in dishes" :key="dish.title">
 
@@ -9,11 +10,12 @@
         <div class="description">
           <h2>{{ dish.title }}</h2>
           <p>{{ dish.price }}zł</p>
-          <button @click="addDish(dish)">Dodaj do koszyka</button>
+          <button @click="addDish(dish)">Zamów</button>
         </div>
         
       </div>
     </div>
+</div>
 </template>
 <script>
 
@@ -75,11 +77,29 @@ export default {
 };
 </script>
 <style scoped>
+p{
+  font-size: 16px;
+}
+
+.plate{
+  width: 145px;
+}
 .dish{
   display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 3px 3px 20px #0000001A;
+  margin-top: 0.5rem;
+  border-radius: 10px;
 }
-.plate{
-  width: 150px;
+.description{
+  text-align: center;
+  width: 50%;
+}
+.description button{
+  background-color: #FFB300;
+  color: rgb(255, 255, 255);
+  border: 0;
 }
 
 </style>
