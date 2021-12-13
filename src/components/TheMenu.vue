@@ -77,16 +77,23 @@ export default {
 };
 </script>
 <style scoped>
+h2{
+  font-size: 24px;
+}
+.the-menu{
+  padding-bottom: 35px;
+}
+
 p{
   font-size: 16px;
 }
-
 .plate{
-  width: 145px;
+  width: 135px;
 }
 .dish{
   display: flex;
   align-items: center;
+  height: 160px;
   background-color: rgb(255, 255, 255);
   box-shadow: 3px 3px 20px #0000001A;
   margin-top: 0.5rem;

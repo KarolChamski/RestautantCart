@@ -1,11 +1,16 @@
 <template>
 <div class="wrapper">
     
-    <div class="the-cart">
+    <div class="the-cart" v-if="visible">
+        <div class="close-div">
         <h2>Koszyk</h2>
-        <p v-if="this.cart.length == 0" class="empty-cart">Koszyk jest pusty</p>
+        <button v-if="mobile" @click="$emit('close')"><img src="../assets/chevron.svg" alt="krzyżyk, znak wyjścia"></button>
+        </div>
 
-        <div class="cart-visible" v-if="visible">
+
+        
+
+        <p v-if="this.cart.length == 0" class="empty-cart">Koszyk jest pusty</p>
 
         <div v-for="item in cart" :key="item.title">
 
@@ -20,7 +25,7 @@
             <button @click="addCounter(item)"><img  src="../assets/chevron-right.svg" alt=""></button>
             </div>
 
-            </div>
+            
 
         </div>
         <h3 v-if="cart.length > 0">Łączna kwota: {{totalPrice}} zł</h3>
@@ -38,7 +43,7 @@ export default{
             totalPrice: 0
         }
     },
-    props:['cart', 'visible'],
+    props:['cart', 'visible', 'mobile'],
     methods:{
         sumPrice(){
             const priceArr = this.cart.map(item => item.price * item.counter);
@@ -66,12 +71,15 @@ export default{
     display: flex;
 }
 h2{
-    padding-top: 1rem;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     font-size: 28px;
 }
 .plate{
     width: 145px;
+}
+.close-div{
+    display: flex;
+    justify-content: space-between;
 }
 
 

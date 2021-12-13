@@ -1,10 +1,24 @@
 <template>
+<div class="app-mobile">
   <div class="wrapper">
     <div class="cards">
       <the-menu class="card card-menu" @addToCart="addDish"></the-menu>
     </div>
   </div>
-      <the-cart class="card card-cart" @click="showCart" :visible="visible" :cart="CartStatus"></the-cart>
+      <div class="cart-bar" @click="showCart">Koszyk ({{CartStatus.length}})</div>
+      <the-cart :mobile="true" @close="showCart" :class="{'card-cart-show' : cartVisible }" class="card card-cart" :visible="cartVisible" :cart="CartStatus"></the-cart>
+</div>
+
+<div class="app-desktop">
+    <div class="wrapper">
+    <div class="cards">
+      <the-menu class="card card-menu" @addToCart="addDish"></the-menu>
+      <!-- <div class="cart-bar" @click="showCart">Koszyk ({{CartStatus.length}})</div> -->
+      <the-cart :mobile="false" @close="showCart" class="card card-cart" :visible="true" :cart="CartStatus"></the-cart>
+    </div>
+  </div>
+</div>
+
 </template>
 
 <script>
@@ -18,7 +32,7 @@ export default{
   data(){
     return{
       CartStatus: [],
-      visible: false
+      cartVisible: false
     }
   },
   methods:{
@@ -31,7 +45,7 @@ export default{
       }
     },
     showCart(){
-      this.visible = !this.visible
+      this.cartVisible = !this.cartVisible
     }
 
   }
@@ -60,21 +74,47 @@ body {
   padding-left:  0.5rem;
   padding-right: 0.5rem; 
 }
+.app-desktop{
+  display: none;
+}
 .card-cart{
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+.card-cart-show{
   position: fixed;
-  bottom: 0px;
+  top: 0;
+}
+.cart-bar{
+  position: fixed;
+  bottom: 0;
   width: 100%;
   box-shadow: 3px 3px 20px #0000001A;
-  background-color: rgb(180, 151, 151);
+  background-color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-align: center;
 }
 
-@media (min-width: 768px){
-  .cards{
-  display: flex;
-  flex-direction: row;
+@media (min-width: 1024px){
+    .app-mobile{
+      display: none;
+    }
+    .app-desktop{
+      display: block;
+    }
+    .cards{
+      display: flex;
+      flex-direction: row;
+    }
+    .card-cart{
+      position: relative;
+      top: 0;
+      width: 100%;
+      background-color: rgb(212, 204, 204);
 }
-.card-cart{
-  position: relative;
+
+
 }
-}
+
 </style>
