@@ -28,9 +28,9 @@
             
 
         </div>
-        <h3 v-if="cart.length > 0">Łączna kwota: {{totalPrice}} zł</h3>
         
         </div>
+        <h3 v-if="cart.length > 0">Łączna kwota: {{totalPrice}} zł</h3>
 
     </div>
 </div>

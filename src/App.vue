@@ -89,6 +89,7 @@ body {
 .cart-bar{
   position: fixed;
   bottom: 0;
+  padding: 1rem 0;
   width: 100%;
   box-shadow: 3px 3px 20px #0000001A;
   background-color: rgb(255, 255, 255);
@@ -105,6 +106,7 @@ body {
     }
     .cards{
       display: flex;
+      justify-content: center;
       flex-direction: row;
     }
     .card-cart{
