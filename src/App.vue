@@ -1,4 +1,5 @@
 <template>
+<h1>YOUR RESTAURANT CART<i class="fas fa-pepper-hot"></i></h1>
   <div class="app-mobile">
     <div class="wrapper">
       <div class="cards">
@@ -21,8 +22,7 @@
   <div class="app-desktop">
     <div class="wrapper">
       <div class="cards">
-        <the-menu class="card card-menu" @addToCart="addDish"></the-menu>
-        <!-- <div class="cart-bar" @click="showCart">Koszyk ({{CartStatus.length}})</div> -->
+        <the-menu class="card card-menu" @addToCart="addDish"></the-menu>      
         <the-cart
           :mobile="false"
           @close="showCart"
@@ -77,10 +77,22 @@ html {
 body {
   margin: 0;
 }
+h1{
+  width: 100%;
+  text-align: center;
+  font-family: 'poppins', sans-serif;
+  color: #000000;
+}
+h1 i{
+  color: #FFB300;
+}
 h2{
   text-align: left;
   margin-left: 0.5rem;
   font-size: 36px;
+}
+button{
+  cursor: pointer;
 }
 
 .wrapper {
@@ -102,6 +114,7 @@ h2{
   position: fixed;
   top: 0;
 }
+
 .cart-bar {
   position: fixed;
   bottom: 0;

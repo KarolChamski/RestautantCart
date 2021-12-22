@@ -84,6 +84,8 @@ export default{
 .counter{
     padding: 0 1rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 h2{
     margin-bottom: 30px;
@@ -109,8 +111,7 @@ h2{
 padding: 0;
 margin: 0;
 border: none;
-background-color: #FFB300;
-border-radius: 5px;
+background-color: #ffffff;
 height: 25px;
 width: 20px;
 }
@@ -127,6 +128,7 @@ width: 20px;
 .item-description{
     display: flex;
     flex-direction: column;
+    margin-left: 1rem;
 }
 .item-title{
     margin-bottom: 0;
